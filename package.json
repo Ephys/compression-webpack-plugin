@@ -20,5 +20,9 @@
       "type": "MIT",
       "url": "http://www.opensource.org/licenses/mit-license.php"
     }
-  ]
+  ],
+  "devDependencies": {
+    "@foobarhq/eslint-config": "^1.1.0",
+    "eslint": "^3.19.0"
+  }
 }
