@@ -21,13 +21,13 @@ npm i -D compression-webpack-plugin
 ## Base Usage
 
 ```javascript
-const CompressionPlugin = require("compression-webpack-plugin");
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   plugins: [
     new CompressionPlugin({
-      asset: "[path].gz[query]",
-      algorithm: "gzip",
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
       test: /\.(js|html)$/,
       threshold: 10240,
       minRatio: 0.8,
@@ -50,13 +50,13 @@ Options:
 ## Algorithm Options
 
 ```javascript
-const CompressionPlugin = require("compression-webpack-plugin");
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   plugins: [
     new CompressionPlugin({
       test: /\.(js|html)$/,
-      algorithm: "gzip",
+      algorithm: 'gzip',
       algorithmOptions: {
         // options for the gzip compression algorithm
         level: zlib.constants.Z_BEST_COMPRESSION,
@@ -112,19 +112,19 @@ You can compress your assets using different compression algorithms by passing a
 of a single object. Useful when you want to support newer algorithms but need to stay compatible with older browsers.
 
 ```javascript
-const CompressionPlugin = require("compression-webpack-plugin");
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   plugins: [
     new CompressionPlugin([{
-      asset: "[path].gz[query]",
-      algorithm: "gzip",
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
       test: /\.(js|html)$/,
       threshold: 10240,
       minRatio: 0.8,
     }, {
-      asset: "[path].br[query]",
-      algorithm: "brotli",
+      asset: '[path].br[query]',
+      algorithm: 'brotli',
       test: /\.(js|html)$/,
       threshold: 10240,
       minRatio: 1.0,

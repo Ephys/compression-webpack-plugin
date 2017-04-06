@@ -121,7 +121,7 @@ function getAlgorithm(algorithm) {
         return algorithms[algorithm];
       }
 
-      // algorithm present inside node's zlib
+      // alias `gzip` and `deflate` to `zlib`
       if (zlib[algorithm]) {
         return zlibAlgorithm;
       }
