@@ -1,4 +1,37 @@
 {
-  "presets": ["env"],
-  "plugins": ["transform-flow-strip-types"]
+  "presets": [
+    "env",
+    [
+      "env",
+      {
+        "useBuiltIns": true,
+        "targets": {
+          "node": 4.3
+        },
+        "exclude": [
+          "transform-async-to-generator",
+          "transform-regenerator"
+        ]
+      }
+    ]
+  ],
+  "plugins": [
+    "transform-flow-strip-types",
+    [
+      "transform-object-rest-spread",
+      {
+        "useBuiltIns": true
+      }
+    ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        "env"
+      ],
+      "plugins": [
+        "transform-object-rest-spread"
+      ]
+    }
+  }
 }

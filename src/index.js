@@ -7,7 +7,7 @@ import async from 'async';
 import Compressor from './Compressor';
 import type { CompressorOptions } from './util';
 
-module.exports = class CompressionPlugin { // eslint-disable-line
+export default class CompressionPlugin { // eslint-disable-line
 
   constructor(options: CompressorOptions | CompressorOptions[]) {
     if (Array.isArray(options)) {
@@ -18,13 +18,12 @@ module.exports = class CompressionPlugin { // eslint-disable-line
   }
 
   apply(compiler) {
-    compiler.plugin('this-compilation', compilation => {
-      compilation.plugin('optimize-assets', (assets, optimizeCallback) => {
+    compiler.plugin('emit', (compilation, optimizeCallback) => {
+      const { assets } = compilation;
 
-        async.forEach(this.compressors, (compressor, cb) => {
-          compressor.processAssets(assets, cb);
-        }, optimizeCallback);
-      });
+      async.forEach(this.compressors, (compressor, cb) => {
+        compressor.processAssets(assets, cb);
+      }, optimizeCallback);
     });
   }
-};
+}

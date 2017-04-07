@@ -1,3 +1,4 @@
 {
-  "extends": "@foobarhq/eslint-config"
+  "extends": "webpack",
+  "parser": "babel-eslint"
 }
