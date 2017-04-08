@@ -6,6 +6,7 @@
   "main": "dist/cjs.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production babel src -d dist --ignore 'src/**/*.test.js'",
+    "build:watch": "yarn run build -- --watch",
     "webpack-defaults": "webpack-defaults",
     "start": "yarn run serve:dev src",
     "clean:dist": "del-cli dist",
@@ -16,9 +17,9 @@
     "release": "yarn run standard-version",
     "security": "nsp check",
     "serve:dev": "nodemon $2 --exec babel-node",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --collectCoverageFrom='src/**/*.js' --coverage",
+    "test": "jest --testPathPattern=\\.test\\.js",
+    "test:watch": "yarn run test -- --watch",
+    "test:coverage": "yarn run test -- --collectCoverageFrom='src/**/*.js' --coverage",
     "travis:coverage": "yarn run test:coverage",
     "travis:lint": "yarn run lint && yarn run security",
     "travis:test": "yarn run test"
@@ -56,13 +57,18 @@
     "eslint": "^3.19.0",
     "eslint-config-webpack": "^1.2.1",
     "eslint-plugin-import": "^2.2.0",
+    "expect": "^1.20.2",
     "jest": "^19.0.2",
     "lint-staged": "^3.4.0",
     "nodemon": "^1.11.0",
     "nsp": "^2.6.3",
     "pre-commit": "^1.2.2",
+    "rimraf": "^2.6.1",
     "standard-version": "^4.0.0",
-    "webpack-defaults": "^0.4.5"
+    "webpack": "^2.3.3",
+    "webpack-defaults": "^0.4.5",
+    "iltorb": "^1.0.13",
+    "node-zopfli": "^2.0.0"
   },
   "engines": {
     "node": ">= 4.3 < 5.0.0 || >= 5.10"
