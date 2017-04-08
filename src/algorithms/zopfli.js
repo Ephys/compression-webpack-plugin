@@ -20,7 +20,7 @@ export default function zopfliAlgorithm(options: CompressorOptions) {
     blocksplittingmax: 15,
   });
 
-  const format = algorithmOptions.format;
+  const { format } = algorithmOptions;
   delete algorithmOptions.format;
 
   const fileExtension = FILE_EXTENSIONS[format] || FILE_EXTENSIONS.gzip;
@@ -28,7 +28,7 @@ export default function zopfliAlgorithm(options: CompressorOptions) {
     asset: `[path].${fileExtension}[query]`,
   });
 
-  return function compress(content, callback) {
+  return function compress(content, metadata, callback) {
     zopfli.compress(content, format, algorithmOptions, callback);
   };
 }

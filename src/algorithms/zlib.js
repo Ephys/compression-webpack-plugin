@@ -35,7 +35,7 @@ export default function zlibAlgorithm(options: CompressorOptions) {
     throw new TypeError(`Invalid zlib algorithm ${format}: Not in zlib.`);
   }
 
-  return function compress(content, callback) {
+  return function compress(content, metadata, callback) {
     algorithm(content, algorithmOptions, callback);
   };
 }

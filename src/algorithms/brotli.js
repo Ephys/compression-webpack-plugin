@@ -12,7 +12,7 @@ export default function zopfliAlgorithm(options: CompressorOptions) {
 
   defaultsDeep(options, { asset: `[path].${FILE_EXTENSIONS.brotli}[query]` });
 
-  return function compress(content, callback) {
+  return function compress(content, metadata, callback) {
     iltorb.compress(content, options.algorithmOptions, callback);
   };
 }
